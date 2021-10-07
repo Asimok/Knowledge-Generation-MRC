@@ -3,7 +3,6 @@ import json
 import os
 
 from torch.utils.data import Dataset
-from transformers import BertTokenizer
 
 
 class CLeQADatasetReader(Dataset):
@@ -57,7 +56,6 @@ class CLeQADatasetReader(Dataset):
         examples['episode_length'] = len(examples['question'])
         return examples
 
-
     def _load_and_preprocess_all(self):
         episodes = self.input_examples
         # dictionary = tokenization.FullTokenizer(self._vocab_fname)
@@ -66,5 +64,5 @@ class CLeQADatasetReader(Dataset):
         # VOCAB = 'vocab.txt'
         # dictionary = BertTokenizer.from_pretrained(os.path.join(UNCASED, VOCAB))
         # bert = BertModel.from_pretrained(UNCASED)
-        dictionary=''
+        dictionary = ''
         return episodes, dictionary
